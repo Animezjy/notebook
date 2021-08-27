@@ -1,3 +1,13 @@
+<br>
+
+<span id="busuanzi_container_site_pv" style='display:none'>
+    👀 本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    | 🚴‍♂️ 本站总访客数：<span id="busuanzi_value_site_uv"></span> 人
+</span>
+
+<br>
 ## 背景
 
 公司目前使用的kubernetes集群是使用rancher搭建的，rancher提供了一套基于etcd的备份方案，在其他维度一直没有好的容灾解决方案，为了提高系统的可用性，也为了防止运维人员误操作，需要对命名空间级别资源实现资源备份
@@ -6,8 +16,8 @@
 
 Velero是Heptio Ark公司（现已经被VMware收购）维护的一套kubernetes的集群备份、迁移工具。提供的主要功能如下：
 
-- 集群备份、恢复功能
-- 快速的迁移集群资源
+
+
 
 velero使用对象存储保存kubernetes集群资源，默认支持AWS、Azure、GCP、兼容S3协议，也可以通过插件来扩展到其他平台（例如阿里云）
 
@@ -76,7 +86,7 @@ $ kubectl apply -f examples/minio/00-minio-deployment.yaml
 
 在本地需要创建对象存储的连接认证文件
 
-```
+```shell
 cat >> credentials-velero <<EOF
 [default]
 aws_access_key_id=minio
@@ -168,7 +178,7 @@ Error from server (NotFound): namespaces "nginx-example" not found
 
 - 恢复数据
 
-```
+```shell
 velero restore create --from-backup nginx-backup
 velero restore get
 ```

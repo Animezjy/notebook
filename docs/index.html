@@ -9,6 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="js/jquery.group.js"></script>
+    <!--添加语法高亮-->
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
 
 </head>
 
@@ -27,16 +32,25 @@
     <script>
         window.$docsify = {
             name: '',
-            repo: 'https://github.com/animezjy',
+            repo: 'https://github.com/animezjy/notebook',
             //loadSidebar: true,
             //嵌套的侧边栏
             subMaxLevel: 2,
-
-
+            /*页脚设置*/ 
+            footer: {
+                copy: '<span id="sitetime"></span> <span>Copyright &copy; 2021 </span>',
+                auth: ' <a href="https://www.luvyw.com/" target="_blank">🏷️ EnjoyToShare Blog</a>',
+                pre: '<hr/>',
+                style: 'text-align: left;',
+            }
         }
     </script>
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- mouse click 添加爱心效果 -->
+<script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
+<!-- 访问量统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 
 </html>
