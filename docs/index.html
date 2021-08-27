@@ -56,18 +56,28 @@
   ],
             /*页脚设置结束*/ 
             /*搜索功能设置*/
-             search: {
-               maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-               paths: 'auto',
-               placeholder: 'Type to search',
-               noData: 'No Results!',
-               depth: 6          // 搜索标题的最大程级, 1 - 6
-             },
+            search: {
+              paths: 'auto',
+              placeholder: '🔍 搜索',
+              noData: '😒 找不到结果',
+              // Headline depth, 1 - 6
+              depth: 6,
+              maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+            },
+
               // 代码块点击复制
                     copyCode: {
                       buttonText : 'Copy',
                       errorText  : 'Error',
                       successText: 'Copied'
+                    },
+                    // 回到顶部
+                    scrollToTop: {
+                        auto: true,
+                        text: 'TOP',
+                        right: 15,
+                        bottom: 15,
+                        offset: 500
                     }
         }
     </script>
@@ -116,6 +126,7 @@
 <!--运行时间统计-->
 <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
 <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+<script src="//unpkg.com/docsify-scroll-to-top/dist/docsify-scroll-to-top.min.js"></script>
 </body>
 
 </html>
