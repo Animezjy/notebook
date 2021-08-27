@@ -9,7 +9,7 @@ Velero是Heptio Ark公司（现已经被VMware收购）维护的一套kubernetes
 - 集群备份、恢复功能
 - 快速的迁移集群资源
 
-velero使用对象存储保存kubernetes几区资源，默认支持AWS、Azure、GCP、兼容S3协议，也可以通过插件来扩展到其他平台（例如阿里云）
+velero使用对象存储保存kubernetes集群资源，默认支持AWS、Azure、GCP、兼容S3协议，也可以通过插件来扩展到其他平台（例如阿里云）
 
 [官方文档](https://velero.io/docs/v1.6/) 
 <br>
