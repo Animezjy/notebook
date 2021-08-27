@@ -4,7 +4,12 @@
 ### **计算机硬件**
 ## **编程语言**
 ### **[Python](python/README)**
+- **[python基础](python/01)**
+- **[python面向对象](python/02)**
+- **[python网络编程](python/03)**
+- **[python框架](python/04)**
 ## 运维相关
 ### **[Linux](linux/README)**
+### **[Docker](docker/README)**
 ### **[Kubernetes](kubernetes/README)**
 ### **[Prometheus](prometheus/README)**
