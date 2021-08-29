@@ -75,17 +75,3 @@ align-content: center;
   justify-content:center;
   align-content:space-between;
 ```
-
-
-
-### 1 justify-content
-flex-start
-flex-end
-center
-space-between
-space-around
-
-align-items:
-    flex-start
-    flex-end
-    center
