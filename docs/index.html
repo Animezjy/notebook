@@ -9,6 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="js/jquery.group.js"></script>
+    <!--添加语法高亮-->
+    <link rel="stylesheet" href="css/prism.css">
+    <script src="js/prism.js"></script>
 
 </head>
 
@@ -18,23 +23,110 @@
         <ul>
             <li><a href="/">首页</a></li>
             <li><a href="#/kubernetes/README">Kubernetes</a></li>
+            <li><a href="#/about/README">关于我</a></li>
             <li></li>
         </ul>
     </nav>
+    <!--导航栏结束-->
     <div id="app"></div>
     <script>
         window.$docsify = {
             name: '',
-            repo: 'https://github.com/animezjy',
+            repo: 'https://github.com/animezjy/notebook',
             //loadSidebar: true,
             //嵌套的侧边栏
             subMaxLevel: 2,
+            /*页脚设置*/ 
+            plugins: [
+                function(hook) {
+                    var footer = [
+                        '<hr/>',
+                        '<footer>',
+                        '<span id="sitetime"><a href="https://www.luvyw.com">zjy</a> &copy;2021.</span>',
+                        '<span>&copy;2021. zjy</span>',
+                        '<br>',
+                        '<span>心之所向，素履以往</span>',
+                        '</footer>'
+                     ].join('');
 
+                    hook.afterEach(function(html) {
+                    return html + footer;
+                });
+    }
+  ],
+            /*页脚设置结束*/ 
+            /*搜索功能设置*/
+            search: {
+              paths: 'auto',
+              placeholder: '🔍 搜索',
+              noData: '😒 找不到结果',
+              // Headline depth, 1 - 6
+              depth: 6,
+              maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+            },
 
+              // 代码块点击复制
+                    copyCode: {
+                      buttonText : 'Copy',
+                      errorText  : 'Error',
+                      successText: 'Copied'
+                    },
+                    // 回到顶部
+                    scrollToTop: {
+                        auto: true,
+                        text: 'TOP',
+                        right: 15,
+                        bottom: 15,
+                        offset: 500
+                    }
         }
     </script>
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- mouse click 添加爱心效果 -->
+<script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
+<!-- 访问量统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- 运行时间统计 -->
+<script language=javascript>
+    function siteTime() {
+      window.setTimeout("siteTime()", 1000);
+      var seconds = 1000;
+      var minutes = seconds * 60;
+      var hours = minutes * 60;
+      var days = hours * 24;
+      var years = days * 365;
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth() + 1;
+      var todayDate = today.getDate();
+      var todayHour = today.getHours();
+      var todayMinute = today.getMinutes();
+      var todaySecond = today.getSeconds();
+      /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+      year - 作为date对象的年份，为4位年份值
+      month - 0-11之间的整数，做为date对象的月份
+      day - 1-31之间的整数，做为date对象的天数
+      hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+      minutes - 0-59之间的整数，做为date对象的分钟数
+      seconds - 0-59之间的整数，做为date对象的秒数
+      microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+      var t1 = Date.UTC(2021, 08, 20, 00, 00, 00); //北京时间2020-02-10 00:00:00
+      var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+      var diff = t2 - t1;
+      var diffYears = Math.floor(diff / years);
+      var diffDays = Math.floor((diff / days) - diffYears * 365);
+      var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+      var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+      var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+      document.getElementById("sitetime").innerHTML = " 本网站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒 ";
+    }
+    siteTime();
+  </script>
+<!--运行时间统计-->
+<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+<script src="//unpkg.com/docsify-scroll-to-top/dist/docsify-scroll-to-top.min.js"></script>
 </body>
 
 </html>
