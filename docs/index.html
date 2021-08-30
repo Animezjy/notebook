@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="Description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+    <link rel="stylesheet" href="static/css/me.css">
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script src="js/jquery.group.js"></script>
+    <script src="static/js/jquery.group.js"></script>
     <!--添加语法高亮-->
-    <link rel="stylesheet" href="css/prism.css">
-    <script src="js/prism.js"></script>
+    <link rel="stylesheet" href="static/css/prism.css">
+    <script src="static/js/prism.js"></script>
     <!--sweetalert-->
     <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
     <style>
@@ -24,14 +24,14 @@
 
 <body>
     <!--导航栏-->
-    <nav>
+    <!-- <nav>
         <ul>
             <li><a href="/#/README">首页</a></li>
             <li><a href="#/kubernetes/README">Kubernetes</a></li>
             <li><a href="#/about/README">关于我</a></li>
             <li></li>
         </ul>
-    </nav>
+    </nav> -->
     <!--导航栏结束-->
     <div id="app"></div>
     <script>
@@ -39,6 +39,7 @@
             name: 'Pegasus的博客',
             repo: 'https://github.com/animezjy/notebook',
             mergeNavbar: true, //Navbar在小屏幕上和侧边栏合并
+            loadNavbar: true,
             maxLevel: 6,
             auto2top: true, //跳转页面后自动跳转到页面顶部
             //调整间距
@@ -213,7 +214,7 @@
   <script src="https://cdn.jsdelivr.net/gh/wugenqiang/StaticRepo/src/js/prism-go.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/wugenqiang/StaticRepo/src/js/prism-matlab.js"></script>
   <!-- 复制代码-->
-  <script src="js/docsify-copy-code.min.js"></script>
+  <script src="static/js/docsify-copy-code.min.js"></script>
 </body>
 
 </html>
