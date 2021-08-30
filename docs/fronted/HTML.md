@@ -36,10 +36,9 @@ head中的常用标签
 - `<style>` 我们可以在style标签中直接书写CSS代码来渲染HTML文档
 - `<script>` 这个标签允许我们引入该html文档中使用的外部[JS](fronted/Javascript)脚本，当然我们也可以在其内部书写Javascript代码
 - `<meta>`&nbsp;meta那标签描述了一些基本的元数据。通常用于指定网页的描述、关键词、文件的最后修改时间、作者等其他元数据
-示例:
+
 ```html
 <!--定义关键词--> 
-
 <meta name="keywords" content="HTML CSS">
 <!--
 如果在浏览器中输入keywords中的关键词，可以在百度等搜索引擎中搜索到（有一定的seo功能）
@@ -51,6 +50,8 @@ head中的常用标签
 <!--每三十秒刷新当前页-->
 <meta http-equiv="refresh" content="30">
 ```
+
+
 ### body标签
 body标签中的内容经过浏览器处理最终会呈现给用户，使我们平时打交道的主要对象
 
