@@ -137,6 +137,13 @@
 
         }
     </script>
+<!--离线模式开始-->
+<script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
+  </script>
+  <!--离线模式结束-->
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <!-- mouse click 添加爱心效果 -->
