@@ -114,13 +114,13 @@ $ docker pull velero/velero-plugin-for-aws:1.2.0
 
 在官方的[github仓库](https://github.com/vmware-tanzu/velero/releases)中下载对应版本的velero安装工具
 
-```
+```shell
 $ wget https://github.com/vmware-tanzu/velero/releases/download/v1.6.3/velero-v1.6.3-linux-amd64.tar.gz
 ```
 
 安装velero服务
 
-```
+```shell
 velero install --namespace velero \
 --use-restic \
 --image velero/velero:v1.6.3 \
@@ -148,7 +148,7 @@ velero install --namespace velero \
 
 - 创建新资源
 
-```
+```shell
 # 这里我们使用velero官方提供的样例
 kubectl apply -f e xamples/nginx-app/base.yaml
 # 查看资源状态
@@ -161,7 +161,7 @@ nginx-deployment   2/2     2            2           4m43s
 
 - 使用velero创建备份
 
-```
+```shell
 $ velero backup create nginx-backup --selector app=nginx
 
 I0824 11:56:36.418685 2891192 request.go:645] Throttling request took 1.16542532s, request: GET:https://172.16.152.223:6443/apis/coordination.k8s.io/v1beta1?timeout=32s
@@ -171,7 +171,7 @@ Run `velero backup describe nginx-backup` or `velero backup logs nginx-backup` f
 
 - 确认命名空间已经删除
 
-```
+```shell
 [root@k8-ceph-1 velero]# kubectl get namespace nginx-example
 Error from server (NotFound): namespaces "nginx-example" not found
 ```
