@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "sweetalert": "^2.1.2",
-    "valine": "^1.4.14"
-  }
-}
