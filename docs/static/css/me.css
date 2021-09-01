@@ -1,6 +1,6 @@
 /*加重描述strong*/
 .markdown-section strong {
-  color: rgb(231, 100, 180);
+  color: #000000;
 }
 
 /* .app-nav{ */
@@ -86,10 +86,20 @@ aside.sidebar ul li.active > a:before {
 
 h1 span{
   display:inline-block;
-  background: rgb(66, 185, 131);
+  background: rgb(150, 203, 232);
+  /* background: rgb(102, 91, 174); */
   color:#ffffff;
   padding:  10px  16px;
   border-radius:5px;
+  box-shadow: 1px 1px 3px black;
+}
+
+h2 span{
+  display: inline-block;
+  background-color: rgb(182, 238, 203);
+  color: black;
+  padding: 10px 16px;
+  border-radius: 5px;
   box-shadow: 1px 1px 3px black;
 }
 
