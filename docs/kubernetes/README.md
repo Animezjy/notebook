@@ -6,7 +6,7 @@ Kubernetes 是一个可移植、可扩展的开源平台，用于管理容器化
 > 随着微服务的快速发展，各大企业中的大部分业务都在逐步的做容器化，即 "虚机"--> "容器"，快速、方便的管理大规模的容器集群，对企业来说，是一个不小的挑战。Kubernetes应运而生，也快速的占领了市场，成为了大部分企业做容器管理的主要选择。对于运维开发人员来说，在当下的时代，Kubernetes已经成为一门必修课。
 ## 2 Kubernetes集群的安装和配置
 * [使用rancher工具部署Kubernetes集群](/kubernetes/rancher)
-* [使用kubeadm工具部署Kubernetes集群](kubectl)
+* [使用kubeadm工具部署Kubernetes集群](kubeadm)
 ## 3 Kubernetes中的最小单元Pod
 ### 1 Pod基本使用
 * [Pod基本定义](kubernetes/Pod基本定义)
@@ -14,7 +14,7 @@ Kubernetes 是一个可移植、可扩展的开源平台，用于管理容器化
 * Pod的配置管理
 * Pod生命周期
 * Pod调度策略（重点）
-## 4 kUbernetes服务暴露机制
+## 4 kubernetes服务暴露机制
 ## 5 Kubernetes各组件工作原理
 ## 6 Kubernetes网络
 ## 7 Kubernetes存储
