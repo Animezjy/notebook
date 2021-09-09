@@ -4,6 +4,8 @@
 ### **计算机硬件**
 - **[单片机](hardware/danpianji)**
 ## **编程语言**
+- **[数据类型](C语言/数据类型.md)**
+### **C语言**
 ### **Python**
 - **[python基础](python/01)**
 - **[python面向对象](python/02)**
