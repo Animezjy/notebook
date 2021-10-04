@@ -1,4 +1,4 @@
-## Ceph安装
+## Ceph(octopus)安装
 
 
 ### 准备工作
@@ -35,4 +35,4 @@ echo "ceph-deploy ALL = (root) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ceph-depl
 sudo chmod 0440 /etc/sudoers.d/ceph-deploy
 ```
     * 把公钥拷贝到各 Ceph 节点
-    
+
