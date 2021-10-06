@@ -1,4 +1,3 @@
-# Jenkins配置通知
 ## Jenknis配置邮件通知
 ### 一、设置邮箱开启 POP3/SMTP/IMAP设置
 ![20211006105445](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006105445.png)
@@ -47,5 +46,3 @@
 
 登录邮箱，可以收到邮件
 ![20211006155947](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006155947.png)
-
-## Jenkins配置钉钉通知

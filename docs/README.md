@@ -24,4 +24,4 @@
 ### **[Prometheus](prometheus/README)**
 ### **Jenkins**
 * **[在Docker中安装Jenkins](jenkins/deploy)**
-* **[Jenkins配置邮件、钉钉通知](jenkins/notice)**
+* **[Jenkins配置邮件通知](jenkins/notice)**
