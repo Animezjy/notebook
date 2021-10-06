@@ -11,8 +11,7 @@
 docker search jenkins
 ```
 ![20211006101828](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006101828.png)
-这里我们使用`jenkins/jenkins`
-拉取镜像
+这里我们使用`jenkins/jenkins`镜像
 ```shell
 docker pull jenkins/jenkins
 ```
