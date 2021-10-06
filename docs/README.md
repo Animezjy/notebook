@@ -22,3 +22,5 @@
 ### **[Docker](docker/README)**
 ### **[Kubernetes](kubernetes/README)**
 ### **[Prometheus](prometheus/README)**
+### **Jenkins**
+* **[在Docker中安装Jenkins]**(Jenkins/deploy)
