@@ -1,6 +1,5 @@
 ## Ceph(octopus)安装
 
-
 ### 准备工作
 * 修改hosts文件
 
@@ -78,6 +77,7 @@ osd pool default size = 2 # osd副本数
 ceph-deploy install ceph-1 ceph-2 ceph-3
 ```
 * 配置初始 monitor(s)、并收集所有密钥
+
 ```shell
 ceph-deploy mon create-initial
 完成上述操作后，当前目录里应该会出现这些密钥环：
@@ -86,11 +86,11 @@ ceph-deploy mon create-initial
 {cluster-name}.bootstrap-osd.keyring
 {cluster-name}.bootstrap-mds.keyring
 {cluster-name}.bootstrap-rgw.keyring
+
 ```
 * 将配置文件同步到各个节点
-```shell
+
 ceph-deploy --overwrite-conf config push ceph-{1,2,3}
-``` 
 
 
 * 添加OSD
@@ -119,10 +119,6 @@ ceph fs new cephfs cephfs_metadata cephfs_data
 # 设置主mds最大数量为1
 ceph fs set cephfs max_mds 1
 ```
-
-
-
-
 
 
 
