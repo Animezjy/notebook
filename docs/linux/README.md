@@ -1,3 +1,3 @@
 ## **Linux基础**
 ## **Linux服务**
-* **[ceph](linux/ceph)**
+* **[ceph](存储/Ceph/ceph)**
