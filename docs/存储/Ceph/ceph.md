@@ -132,5 +132,6 @@ ceph fs set cephfs max_mds 1
 * python版本不兼容
 ![20211004205556](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211004205556.png)
 解决办法：
-1. 修改`/usr/bin/ceph-deploy`文件，将python解释器版本修改成`#!/usr/bin/python2.7`
-2. yum -y install python2-pip.noarch
+```shell
+yum -y install python2-pip.noarch
+```
