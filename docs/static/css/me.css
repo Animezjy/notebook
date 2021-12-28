@@ -94,14 +94,14 @@ h1 span{
   box-shadow: 1px 1px 3px black;
 }
 
-h2 span{
+/* h2 span{
   display: inline-block;
   background-color: rgb(182, 238, 203);
   color: black;
   padding: 10px 16px;
   border-radius: 5px;
   box-shadow: 1px 1px 3px black;
-}
+} */
 
 /*代码块背景*/
 p code{
