@@ -1,8 +1,7 @@
-# docker学习手册
-## 1 前言
-记录在docker学习中的记录
+# **Centos7安装docker**
 
-## 2 docker介绍
+
+## 1 docker介绍
 docker是一个基于Go语言开发的容器引擎，它可以让我们快速的将应用打包到一个可移植的容器中，快速的发布到各个平台上
 > docker也是目前主流容器平台kubernetes默认支持的引擎
 
@@ -11,10 +10,9 @@ docker有以下特点
 - 跨平台
 - 在同一硬件上可以运行多个容器
 
-
 [docker官网](https://www.docker.com)
 
-## 3 docker的安装
+## docker的安装
 ### 环境
 
 | 系统环境  | 主机名   | docker  |
