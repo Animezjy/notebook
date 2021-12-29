@@ -12,7 +12,7 @@
 
 ## **Python**
 * **【一】pychon 学习笔记**
-  * **[python基础](python/01)**
+  * **[python基础](python/python基础/README.md)**
   * **[python面向对象](python/02)**
   * **[python网络编程](python/03)**
   * **[python框架](python/04)**

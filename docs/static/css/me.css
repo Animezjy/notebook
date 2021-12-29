@@ -2,6 +2,10 @@
 .markdown-section strong {
   color: #000000;
 }
+/*a标签*/
+a {
+  color:rgb(150, 203, 232);
+}
 
 /* .app-nav{ */
   /* position: fixed; */

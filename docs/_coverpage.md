@@ -21,5 +21,5 @@
 
 <br> -->
 
-[GitHub](https://github.com/Animezjy/notebook)
 [开始阅读](/README.md)
+[GitHub](https://github.com/Animezjy/notebook)

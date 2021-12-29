@@ -1,7 +1,7 @@
 # **Centos7安装docker**
 
 
-## 1 docker介绍
+## **docker介绍**
 docker是一个基于Go语言开发的容器引擎，它可以让我们快速的将应用打包到一个可移植的容器中，快速的发布到各个平台上
 > docker也是目前主流容器平台kubernetes默认支持的引擎
 
@@ -12,7 +12,7 @@ docker有以下特点
 
 [docker官网](https://www.docker.com)
 
-## docker的安装
+## **docker的安装**
 ### 环境
 
 | 系统环境  | 主机名   | docker  |
@@ -62,8 +62,6 @@ yum-config-manager \
 yum -y install docker-ce-19.03.8 docker-ce-cli containerd.io
 ```
 
-------
-
 启动docker
 
 ```
@@ -93,9 +91,12 @@ sudo systemctl restart docker
 
 
 
+将docker授权给普通用户
 
-
-
+```shell
+gpasswd -a user00 docker
+newgrp docker
+```
 
 
 
