@@ -10,8 +10,9 @@
 # 查询可用的jenkins镜像
 docker search jenkins
 ```
-![20211006101828](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006101828.png)
+![image-20211230151131252](https://gitee.com/animezjy/PicGo_img/raw/master/images/202112301511333.png)
 这里我们使用`jenkins/jenkins`镜像
+
 ```shell
 docker pull jenkins/jenkins
 ```
@@ -24,4 +25,5 @@ chmod -R 777  /data/jenkins_home
 docker run -itd --name jenkins -p 8080:8080 -v /data/jenkins_home:/var/jenkins_home jenkins/jenkins
 ```
 使用 `docker logs -f jenkins`可以查看容器日志，容器的数据会持久化到刚才创建的数据目录`/data/jenkins_home`中
-![20211006102524](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006102524.png)
+![image-20211230151140129](https://gitee.com/animezjy/PicGo_img/raw/master/images/202112301511255.png)
+

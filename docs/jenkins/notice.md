@@ -1,15 +1,16 @@
 ## Jenknis配置邮件通知
 ### 一、设置邮箱开启 POP3/SMTP/IMAP设置
-![20211006105445](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006105445.png)
+![image-20211230151001554](https://gitee.com/animezjy/PicGo_img/raw/master/images/202112301510668.png)
 ### 二、Jenkins上安装邮件相关插件
 安装插件`Email Extension Template`用于设置邮件模板
-![20211006105825](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006105825.png)
+![image-20211230151012749](https://gitee.com/animezjy/PicGo_img/raw/master/images/202112301510834.png)
+
 ### 三、配置系统默认邮箱
 在**系统管理**->**系统设置**中进行配置:
 * 配置Jenkins location
 ![20211006110117](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006110117.png)
 * 配置扩展邮件通知
-![20211006110634](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006110634.png)
+![image-20211230151019528](https://gitee.com/animezjy/PicGo_img/raw/master/images/202112301510625.png)
     * SMTP Server: smtp服务器
     * SMTP Username： 用户邮箱
     * SMTP Password： 邮箱授权码
@@ -42,7 +43,7 @@
 
 * 构建触发任务
 查看日志，已经构建成功
-![20211006160601](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006160601.png)
+![image-20211230151033558](https://gitee.com/animezjy/PicGo_img/raw/master/images/202112301510666.png)
 
 登录邮箱，可以收到邮件
-![20211006155947](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006155947.png)
+![image-20211230151044072](https://gitee.com/animezjy/PicGo_img/raw/master/images/202112301510179.png)

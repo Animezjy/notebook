@@ -2,9 +2,14 @@
 ## 1.1 **环境准备**
 ### 1.1.1 **安装python**
 1. 官网下载python解释器
-进入[官网](https://www.python.org),进入下载页面，安装需要的版本
-![20210829144854](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20210829144854.png)
+  进入[官网](https://www.python.org),进入下载页面，安装需要的版本
+
+  ![image-20211230150033392](https://gitee.com/animezjy/PicGo_img/raw/master/images/202112301500503.png)
+
+  
+
 下载完毕后，根据提示一步一步安装即可
+
 ### 1.1.2 **编辑器的选择**
 我这里大力推荐微软家的[Visual Studio Code](https://code.visualstudio.com/)，它可以跨平台，windows、mac、linux通用，重点是免费！！！如果要做项目的话，可以使用全家桶系列之一的Pycharm，以下是破解教程
 - [Pycharm](tools/Pycharm)
