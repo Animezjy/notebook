@@ -4,8 +4,9 @@
 - 操作系统：Centos7.9
 - jenkins版本：2.314
 ### 安装
-* 1. **[安装docker]**(docker/README)
-* 2. 使用docker拉取镜像
+1. [安装docker](docker/README)
+2. 使用docker拉取镜像
+
 ```shell
 # 查询可用的jenkins镜像
 docker search jenkins
