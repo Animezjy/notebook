@@ -43,9 +43,9 @@
 
 ## **Linux**
 
-* [linux系统](装机/README)
+* **[linux系统](装机/README)**
 
-
+* **[常见问题排查](linux/README)**
 
 ## **Ceph**
 
