@@ -1,33 +1,27 @@
-<br>
+# **Velero调研**
 
-<span id="busuanzi_container_site_pv" style='display:none'>
-    👀 本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
-</span>
-<span id="busuanzi_container_site_uv" style='display:none'>
-    | 🚴‍♂️ 本站总访客数：<span id="busuanzi_value_site_uv"></span> 人
-</span>
 
-<br>
-## 背景
+
+## **背景**
 
 公司目前使用的kubernetes集群是使用rancher搭建的，rancher提供了一套基于etcd的备份方案，在其他维度一直没有好的容灾解决方案，为了提高系统的可用性，也为了防止运维人员误操作，需要对命名空间级别资源实现资源备份
 
-## velero简介
-
-Velero是Heptio Ark公司（现已经被VMware收购）维护的一套kubernetes的集群备份、迁移工具。提供的主要功能如下：
 
 
+## **velero简介**
+
+Velero是Heptio Ark公司（现已经被VMware收购）维护的一套kubernetes的集群备份、迁移工具
 
 
 velero使用对象存储保存kubernetes集群资源，默认支持AWS、Azure、GCP、兼容S3协议，也可以通过插件来扩展到其他平台（例如阿里云）
 
-[官方文档](https://velero.io/docs/v1.6/) 
-<br>
-[github地址](https://github.com/vmware-tanzu/velero)
+* **[官方文档](https://velero.io/docs/v1.6/)**
+
+* **[github地址](https://github.com/vmware-tanzu/velero)**
 
 
 
-## Velero工作原理
+## **Velero工作原理**
 
 
 ![velero工作流程](https://gitee.com/animezjy/PicGo_img/raw/master/images/20210826232248.png)
@@ -96,7 +90,7 @@ EOF
 
 **准备velero镜像**
 
-```
+```shell
 $ docker pull velero/velero:v1.6.3
 ```
 
@@ -104,15 +98,15 @@ $ docker pull velero/velero:v1.6.3
 
 本文中使用的对象存储为MINIO，需要安装对应的插件
 
-```
+```shell
 $ docker pull velero/velero-plugin-for-aws:1.2.0
 ```
 
+
+
 **开始安装velero**
 
-
-
-在官方的[github仓库](https://github.com/vmware-tanzu/velero/releases)中下载对应版本的velero安装工具
+在官方的**[github仓库](https://github.com/vmware-tanzu/velero/releases)**中下载对应版本的velero安装工具
 
 ```shell
 $ wget https://github.com/vmware-tanzu/velero/releases/download/v1.6.3/velero-v1.6.3-linux-amd64.tar.gz
@@ -121,7 +115,7 @@ $ wget https://github.com/vmware-tanzu/velero/releases/download/v1.6.3/velero-v1
 安装velero服务
 
 ```shell
-velero install --namespace velero \
+$ velero install --namespace velero \
 --use-restic \
 --image velero/velero:v1.6.3 \
 --provider aws --bucket velero \
@@ -132,10 +126,13 @@ velero install --namespace velero \
 
 ![](https://gitee.com/animezjy/PicGo_img/raw/master/images/20210826232448.png)
 
+ 
 
-## 测试名称空间备份
+## **测试名称空间备份**
 
-### 步骤
+
+
+### **步骤**
 
 1. 创建一个新的命名空间，启动测试程序，这里以nginx为例
 2. 通过标签选择器为对象创建一个备份
@@ -146,20 +143,20 @@ velero install --namespace velero \
 
 
 
-- 创建新资源
+* **创建新资源**
 
 ```shell
 # 这里我们使用velero官方提供的样例
-kubectl apply -f e xamples/nginx-app/base.yaml
+$ kubectl apply -f e xamples/nginx-app/base.yaml
 # 查看资源状态
-kubectl get deployment -n nginx-example
+$ kubectl get deployment -n nginx-example
 
 
 NAME               READY   UP-TO-DATE   AVAILABLE   AGE
 nginx-deployment   2/2     2            2           4m43s
 ```
 
-- 使用velero创建备份
+- **使用velero创建备份**
 
 ```shell
 $ velero backup create nginx-backup --selector app=nginx
@@ -169,18 +166,18 @@ Backup request "nginx-backup" submitted successfully.
 Run `velero backup describe nginx-backup` or `velero backup logs nginx-backup` for more details.
 ```
 
-- 确认命名空间已经删除
+- **确认命名空间已经删除**
 
 ```shell
-[root@k8-ceph-1 velero]# kubectl get namespace nginx-example
+[root@k8-ceph-1 velero]$ kubectl get namespace nginx-example
 Error from server (NotFound): namespaces "nginx-example" not found
 ```
 
-- 恢复数据
+- **恢复数据**
 
 ```shell
-velero restore create --from-backup nginx-backup
-velero restore get
+$ velero restore create --from-backup nginx-backup
+$ velero restore get
 ```
 
 
@@ -188,6 +185,8 @@ velero restore get
 ![](https://gitee.com/animezjy/PicGo_img/raw/master/images/20210826232557.png)
 
 
-## 总结
+
+## **总结**
 
 本文简单介绍了kubernetes集群备份、恢复工具velero的使用方法，具体生产过程中的细节还需要具体把控，例如：对象存储的选择，备份数据的策略、持久化存储的数据备份...... 更多的功能可以查看velero官方手册进行查看
+
