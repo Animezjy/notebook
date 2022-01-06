@@ -13,13 +13,13 @@ docker有以下特点
 [docker官网](https://www.docker.com)
 
 ## **docker的安装**
-### 环境
+### **环境**
 
 | 系统环境  | 主机名   | docker  |
 | --------- | -------- | ------- |
 | Centos7.9 | master01 | 19.03.8 |
 
-### 卸载旧版docker
+### **卸载旧版docker**
 
 ```
 yum remove docker \
@@ -32,7 +32,7 @@ yum remove docker \
                   docker-engine
 ```
 
-### 安装docker
+### **安装docker**
 
 安装epel源
 

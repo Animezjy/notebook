@@ -31,9 +31,9 @@
 
 # **前端**
 
-* [HTML](fronted/HTML)
-* [CSS](fronted/CSS)
-* [Vue](fonted/vue)
+* **[HTML](fronted/HTML)**
+* **[CSS](fronted/CSS)**
+* **[Vue](fonted/vue)**
 
 
 
@@ -74,10 +74,7 @@
 
 
 
+## **计算机硬件**
 
+* **[单片机](hardware/danpianji)**
 
-
-
-### **计算机硬件**
-
-- **[单片机](hardware/danpianji)**

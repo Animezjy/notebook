@@ -1,11 +1,20 @@
-## Jenknis配置邮件通知
-### 一、设置邮箱开启 POP3/SMTP/IMAP设置
+# **Jenknis配置邮件通知**
+
+## **一、设置邮箱开启 POP3/SMTP/IMAP设置**
+
 ![image-20211230151001554](https://gitee.com/animezjy/PicGo_img/raw/master/images/202112301510668.png)
-### 二、Jenkins上安装邮件相关插件
+
+
+
+## **二、Jenkins上安装邮件相关插件**
+
 安装插件`Email Extension Template`用于设置邮件模板
 ![image-20211230151012749](https://gitee.com/animezjy/PicGo_img/raw/master/images/202112301510834.png)
 
-### 三、配置系统默认邮箱
+
+
+## **三、配置系统默认邮箱**
+
 在**系统管理**->**系统设置**中进行配置:
 * 配置Jenkins location
 ![20211006110117](https://raw.githubusercontent.com/Animezjy/PicGo_img/master/images20211006110117.png)
@@ -16,7 +25,11 @@
     * SMTP Password： 邮箱授权码
     * Default user e-mail suffix: 默认邮箱后缀
     * Default Content Type: 邮件文本格式
-### 四、测试发送邮件
+
+
+
+## **四、测试发送邮件**
+
 * 新建一个流水线项目
 * 配置pipeline脚本
 ```grovvy

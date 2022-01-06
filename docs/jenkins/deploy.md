@@ -1,11 +1,16 @@
-## Jenkins安装及使用
+# **Jenkins安装及使用**
 
-### 环境说明
+### **环境说明**
 - 操作系统：Centos7.9
 - jenkins版本：2.314
-### 安装
-1. [安装docker](docker/README)
-2. 使用docker拉取镜像
+
+
+
+### **安装**
+
+[安装docker](docker/docker安装)
+
+使用docker拉取镜像
 
 ```shell
 # 查询可用的jenkins镜像
@@ -17,7 +22,10 @@ docker search jenkins
 ```shell
 docker pull jenkins/jenkins
 ```
-* 3. 创建数据持久化目录，启动容器
+
+
+创建数据持久化目录，启动容器
+
 ```shell
 # 创建数据目录
 mkdir -p /data/jenkins_home
