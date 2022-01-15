@@ -8,4 +8,3 @@
   * **[构建交叉工具链](装机/LFS/03-构建LFS交叉工具链和临时工具)**
 * **Arch linux**
   * **[Arch linux](装机/Arch/README)**
-
