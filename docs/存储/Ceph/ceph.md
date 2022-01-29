@@ -1,6 +1,7 @@
-## Ceph(octopus)安装
+# **Ceph(octopus)安装**
 
-### 准备工作
+## **准备工作**
+
 * 修改hosts文件
 
 ```shell
@@ -44,7 +45,9 @@ ssh-copy-id ceph
 ```
 
 
-### 安装ceph集群(使用ceph-deploy)
+
+## **安装ceph集群(使用ceph-deploy)**
+
 * 创建临时目录
 
 > 在管理节点上创建一个目录，用于保存 ceph-deploy 生成的配置文件和密钥对
@@ -143,7 +146,7 @@ ceph fs new cephfs cephfs_metadata cephfs_data
 ceph fs set cephfs max_mds 1
 ```
 
-### 安装过程中出现的错误及解决办法
+## **安装过程中出现的错误及解决办法**
 
 * python版本不兼容
 
@@ -153,3 +156,4 @@ ceph fs set cephfs max_mds 1
 ```shell
 yum -y install python2-pip.noarch
 ```
+
