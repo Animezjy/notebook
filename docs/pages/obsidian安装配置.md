@@ -1,0 +1,104 @@
+---
+tags: 生活/自我管理/obsidian
+---
+
+# 如何从一个新vault配置出一个用于演示的库
+
+- 设置
+    - Editor
+        - Default new pane view
+            - Editing View
+            - 我比较喜欢默认进入编辑模式
+        - Use legacy editor
+            - False
+            - 目前Live Preview功能已经相对成熟，很多插件也都已经适配了。
+        - Default editing mode
+            - LivePreview
+        - Fold heading
+            - True
+            - 好像是zoom插件需要
+        - Fold indent
+            - True
+            - 好像是zoom插件需要
+        - Use tabs
+            - False
+            - 个人比较喜欢用空格做缩进
+    - File & Links
+        - Automatically update internal links
+            - True
+            - 重命名文档时，自动更新引用该文档的链接
+        - Default location for new notes
+            - pages
+        - Default location for new attachments
+            - assets
+    - Apperence
+        - Base theme
+            - Light
+    - Core plugins
+        - File explorer
+        - Search
+        - Quick switcher
+        - Graph view
+        - Backlinks
+        - **Tag pane**
+            - 标签面板，默认没开，需要手动开启。
+        - ~~Page preview~~
+            - 我不太喜欢鼠标移动上去时就弹出preview，手动关闭。
+        - Note composer
+        - Command palette
+            - Pinned commands里添加
+                - Toggle pin
+        - **Starred**
+            - 收藏夹，默认没开，需要手动开启。
+        - **Outline**
+            - 文档大纲，默认没开，需要手动开启。
+- 安装和配置第三方插件
+    - Community plugins
+        - Kanban
+        - Dataview
+            - Enable Javascript Queries
+                - True
+        - Outliner
+            - 基于“块”的编辑模式，让obsidian有类似于workflowy的编辑体验。
+        - Paste URL into selection
+        - Auto Link Title
+            - Replace Selection
+                - False
+                - 这样可以跟Paste URL into selection较好的配合工作。
+        - Tasks
+            - Global task filter
+                - `#todo`
+        - Remember cursor position
+            - 切换文档后，光标能还原到之前的位置。
+            - 这个我感觉是必须要装的插件，否则切换窗口或者切换文档后再回来，体验极差……
+        - Force note view mode
+            - 通过front matter定义，强制让文档打开时处于编辑状态或预览状态。
+        - Hotkeys for specific files
+            - 为 Index.md & Board.md 添加快捷键
+            - Index.md 是我自定义的索引页面
+            - Board.md 是我的kanban页面
+- 快捷键
+    - Tasks: create or edit task
+        - ctrl+shift+enter
+    - Command palette: open command palette
+        - ctrl+shift+p
+    - Navigate back/forward
+        - `ctrl + [`, `ctrl+ ]`
+    - Outliner: move sublist up
+        - ctrl + shift + up
+    - Outliner: move sublist down
+        - ctrl + shift + down
+    - Quick switcher: open quick switcher
+        - ctrl + shift + o
+    - Tasks: toggle task down
+        - ctrl + enter
+- 基础文档准备
+    - Home.md
+        - 写入[js代码](https://gist.github.com/oylbin/db3e7094391f23ce18ce03f5307e4cd3)
+    - Board.md
+        - 新建一个kanban
+        - 新建4个List
+            - backlog
+            - todo
+            - doing
+            - done

@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Pegasus的博客</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="Description">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-    <link rel="stylesheet" href="static/css/me.css">
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script src="static/js/jquery.group.js"></script>
-    <!--添加语法高亮-->
-    <link rel="stylesheet" href="static/css/prism.css">
-    <script src="static/js/prism.js"></script>
-    <style>
-      a {
-        color: aqua;
-      }
-    </style>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
-
 <body>
-    <!--导航栏-->
-    <!-- <nav>
-        <ul>
-            <li><a href="/#/README">首页</a></li>
-            <li><a href="#/kubernetes/README">Kubernetes</a></li>
-            <li><a href="#/about/README">关于我</a></li>
-            <li></li>
-        </ul>
-    </nav> -->
-    <!--导航栏结束-->
-    <div id="app"></div>
-    <script>
-        window.$docsify = {
-            name: 'Pegasus Book',
-            repo: 'https://github.com/animezjy/notebook',
-            mergeNavbar: true, //Navbar在小屏幕上和侧边栏合并
-            loadNavbar: true,
-            maxLevel: 6,
-            auto2top: true, //跳转页面后自动跳转到页面顶部
-            //调整间距
-            topMargin: 60,
-            coverpage: true, //封面
-            onlyCover: true, //封面内容单独显示
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      themeColor: '#76becc',
+      name: '学习笔记',
+      namelink: 'https://www.luvyw.com/',
+      repo: 'https://github.com/animezjy',
+
+      //loadSidebar: true,
+      loadNavbar: true,
+      
+      coverpage: true,
             /*页脚设置*/
             plugins: [
                 function(hook) {
@@ -54,165 +31,158 @@
                         '<br>',
                         '<span>心之所向，素履以往</span>',
                         '</footer>'
-                    ].join('');
+                     ].join('');
 
                     hook.afterEach(function(html) {
-                        return html + footer;
-                    });
-                }
-            ],
+                    return html + footer;
+                });
+    }
+  ],
             /*页脚设置结束*/
-            /*搜索功能设置*/
-            search: {
-                paths: 'auto',
-                placeholder: '搜索',
-                noData: '😒 找不到结果',
-                // Headline depth, 1 - 6
-                depth: 6,
-                maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-            },
-
-            // 代码块点击复制
-             copyCode: {
-                 buttonText: 'Copy',
-                 errorText: 'Error',
-                 successText: 'Copied'
-             },
-            // 回到顶部
-            scrollToTop: {
-                auto: true,
-                text: 'TOP',
-                right: 15,
-                bottom: 15,
-                offset: 500
-            },
-            //markdown设置
-        markdown: {
-        renderer: {
-          code: function(code, lang, base=null) {
-
-            if (lang === "dot") {
-              return (
-                      '<div class="viz">'+ Viz(code, "SVG")+'</div>'
-              );
-            }
-
-            var pdf_renderer = function(code, lang, verify) {
-              function unique_id_generator(){
-                function rand_gen(){
-                  return Math.floor((Math.random()+1) * 65536).toString(16).substring(1);
-                }
-                return rand_gen() + rand_gen() + '-' + rand_gen() + '-' + rand_gen() + '-' + rand_gen() + '-' + rand_gen() + rand_gen() + rand_gen();
-              }
-              if(lang && !lang.localeCompare('pdf', 'en', {sensitivity: 'base'})){
-                if(verify){
-                  return true;
-                }else{
-                  var divId = "markdown_code_pdf_container_" + unique_id_generator().toString();
-                  var container_list = new Array();
-                  if(localStorage.getItem('pdf_container_list')){
-                    container_list = JSON.parse(localStorage.getItem('pdf_container_list'));
-                  }
-                  container_list.push({"pdf_location": code, "div_id": divId});
-                  localStorage.setItem('pdf_container_list', JSON.stringify(container_list));
-                  return (
-                          '<div style="margin-top:'+ PDF_MARGIN_TOP +'; margin-bottom:'+ PDF_MARGIN_BOTTOM +';" id="'+ divId +'">'
-                          + '<a href="'+ code + '"> Link </a> to ' + code +
-                          '</div>'
-                  );
-                }
-              }
-              return false;
-            }
-            if(pdf_renderer(code, lang, true)){
-              return pdf_renderer(code, lang, false);
-            }
-            //return this.origin.code.apply(this, arguments);
-            return (base ? base : this.origin.code.apply(this, arguments));
-          }
-        }
+      pagination: {
+        previousText: '上一章节',
+        nextText: '下一章节',
+        crossChapter: false,
+        crossChapterText: true,
       },
-        }
-    </script>
-<!--离线模式开始-->
-<script>
-    if (typeof navigator.serviceWorker !== 'undefined') {
-      navigator.serviceWorker.register('sw.js')
+      count:{
+        countable:true,
+        fontsize:'0.9em',
+        color:'rgb(90,90,90)',
+        language:'chinese'
+      },
+      search: {
+        paths: 'auto',
+        placeholder: '🔍 搜索',
+        noData: '😒 找不到结果',
+        // Headline depth, 1 - 6
+        depth: 6,
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      },//添加搜索框
+
     }
   </script>
-  <!--离线模式结束-->
-    <!-- Docsify v4 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-    <!-- mouse click 添加爱心效果 -->
-    <script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
-    <!-- 访问量统计 -->
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <!-- 运行时间统计 -->
-    <script language=javascript>
-        function siteTime() {
-            window.setTimeout("siteTime()", 1000);
-            var seconds = 1000;
-            var minutes = seconds * 60;
-            var hours = minutes * 60;
-            var days = hours * 24;
-            var years = days * 365;
-            var today = new Date();
-            var todayYear = today.getFullYear();
-            var todayMonth = today.getMonth() + 1;
-            var todayDate = today.getDate();
-            var todayHour = today.getHours();
-            var todayMinute = today.getMinutes();
-            var todaySecond = today.getSeconds();
-            /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
-            year - 作为date对象的年份，为4位年份值
-            month - 0-11之间的整数，做为date对象的月份
-            day - 1-31之间的整数，做为date对象的天数
-            hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
-            minutes - 0-59之间的整数，做为date对象的分钟数
-            seconds - 0-59之间的整数，做为date对象的秒数
-            microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-            var t1 = Date.UTC(2021, 08, 20, 00, 00, 00); //北京时间2020-02-10 00:00:00
-            var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
-            var diff = t2 - t1;
-            var diffYears = Math.floor(diff / years);
-            var diffDays = Math.floor((diff / days) - diffYears * 365);
-            var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-            var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
-            var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
-            document.getElementById("sitetime").innerHTML = " 本网站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒 ";
-        }
-        siteTime();
-    </script>
-    <!--运行时间统计-->
-    <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
-    <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
-    <script src="//unpkg.com/docsify-scroll-to-top/dist/docsify-scroll-to-top.min.js"></script>
-      <!-- 代码块样式优化-->
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-c.js"></script>
-  <!--<script src="//unpkg.com/prismjs/components/prism-cpp.js"></script>-->
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-cpp.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-css.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-docker.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-java.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-javascript.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-json.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-latex.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-sql.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-markdown.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-bash.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-php.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-scala.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-nginx.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-json.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-markdown.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/prism-python.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/js/prism-yaml.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/StaticRepo/src/js/prism-go.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/StaticRepo/src/js/prism-matlab.js"></script>
-  <!-- 复制代码-->
-  <script src="static/js/docsify-copy-code.min.js"></script>
-  <script src="//unpkg.com/docsify-valine/dist/docsify-valine.min.js"></script>
-  <!--sweetalert-->
-  <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
+  <!-- 数学公式插件 -->
+  <!-- CDN files for docsify-katex -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+  <!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex@latest/dist/docsify-katex.js"></script> -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
+  <!-- 分页导航插件 -->
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+  <!-- 代码高亮插件 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js"></script>
+
+  <!-- 复制到剪贴板 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+
+  <!-- PDFObject.js is a required dependency of this plugin -->
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>  -->
+  <!-- This is the source code of the pdf embed plugin -->
+  <!-- <script src="path-to-file/docsify-pdf-embed.js"></script> -->
+  <!-- or use this if you are not hosting the file yourself -->
+  <!-- <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script> -->
+
+  <!-- 搜索功能 -->
+  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/search.min.js"></script>
+
+  <!-- 访问量统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<!--看板娘-->
+
+<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+<script>
+  L2Dwidget.init({
+    "model": {
+      //jsonpath控制显示那个小萝莉模型，
+      //(切换模型需要改动)
+      jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
+      "scale": 1
+    },
+    "display": {
+      "position": "right", //看板娘的表现位置
+      "width": 70,  //小萝莉的宽度
+      "height": 140, //小萝莉的高度
+      "hOffset": 35,
+      "vOffset": -20
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.5
+    },
+    "react": {
+      "opacityDefault": 0.7,
+      "opacityOnHover": 0.2
+    }
+  });
+</script>
+
+
+<!-- 运行时间统计 -->
+<script language=javascript>
+    function siteTime() {
+      window.setTimeout("siteTime()", 1000); var seconds = 1000;
+      var minutes = seconds * 60;
+      var hours = minutes * 60;
+      var days = hours * 24;
+      var years = days * 365;
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth() + 1;
+      var todayDate = today.getDate();
+      var todayHour = today.getHours();
+      var todayMinute = today.getMinutes();
+      var todaySecond = today.getSeconds();
+      /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+      year - 作为date对象的年份，为4位年份值
+      month - 0-11之间的整数，做为date对象的月份
+      day - 1-31之间的整数，做为date对象的天数
+      hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+      minutes - 0-59之间的整数，做为date对象的分钟数
+      seconds - 0-59之间的整数，做为date对象的秒数
+      microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+      var t1 = Date.UTC(2021, 08, 20, 00, 00, 00); //北京时间2020-02-10 00:00:00
+      var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+      var diff = t2 - t1;
+      var diffYears = Math.floor(diff / years);
+      var diffDays = Math.floor((diff / days) - diffYears * 365);
+      var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+      var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+      var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+      document.getElementById("sitetime").innerHTML = " 本网站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒 ";
+    }
+    siteTime();
+  </script>
+
+
+  <!-- 回到顶部功能 -->
+  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/jquery.goup.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $.goup({
+        trigger: 100,
+        bottomOffset: 52,
+        locationOffset: 25,
+        //title: 'TOP',
+        titleAsText: true
+      });
+    });
+  </script>
+
+
+
+
 </body>
 </html>
