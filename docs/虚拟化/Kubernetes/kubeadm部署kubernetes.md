@@ -1,9 +1,8 @@
 #学习/运维技术/kubernetes 
-# **使用kubeadm搭建k8s集群**
+# **使用kubeadm搭建Kubernetes集群**
 
 
-
-## **系统环境**
+## **一、系统环境**
 
 | 系统环境  | 主机ip        | 主机名   | k8s版本 |
 | --------- | ------------- | -------- | ------- |
@@ -13,21 +12,21 @@
 
 
 
-## **准备工作(需要在三台主机执行)**
+## **二、设置基础环境(需要在三台主机执行)**
 
 
-**关闭selinux分区**
+### **1、关闭selinux分区**
 
-```
+```shell
 setenforce 0
 sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config
 ```
 
 
 
-**关闭交换分区**
+### **2、关闭交换分区**
 
-```
+```shell
 swapoff -a
 yes | cp /etc/fstab /etc/fstab_bak
 cat /etc/fstab_bak |grep -v swap > /etc/fstab
@@ -35,7 +34,7 @@ cat /etc/fstab_bak |grep -v swap > /etc/fstab
 
 
 
-**修改内核参数**
+### **3、修改内核参数**
 
 ```
 cat >> /etc/sysctl.conf<< EOF
@@ -100,22 +99,22 @@ echo "1" > /proc/sys/net/bridge/bridge-nf-call-iptables
 
 
 
-**安装docker环境**
+### **4、安装docker环境**
 
-**[Centos7部署docker](docker/Centos7安装docker)**
+**[Centos7部署docker](虚拟化/docker/Centos7安装docker.md)**
 
 
 
-```
+```shell
 yum -y install containerd.io docker-ce-19.03.8 docker-ce-cli-19.03.8
 systemctl enable docker && systemctl start docker
 ```
 
 
 
-**修改docker Cgroup以及镜像源仓库**
+### **5、修改docker Cgroup以及镜像源仓库**
 
-```
+```shell
 # 修改docker cgroup为 systemd  如果不修改，在初始化k8s集群时会报错
 sed -i "s#^ExecStart=/usr/bin/dockerd.*#ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --exec-opt native.cgroupdriver=systemd#g" /usr/lib/systemd/system/docker.service
 # 修改docker镜像源
@@ -141,9 +140,9 @@ systemctl restart docker
 
 
 
-**配置k8s的yum源**
+### **6、配置k8s的yum源**
 
-```
+```shell
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
@@ -158,18 +157,18 @@ EOF
 
 
 
-**安装k8s工具**
+### **7、安装k8s工具**
 
-```
+```shell
 yum -y install kubectl-1.19.7 kubeadm-1.19.7 kubelet-1.19.7
 systemctl enable kubelet && systemctl start kubelet
 ```
 
 
 
-**配置api-server的负载均衡（通过keepalived+haproxy）**
+### **8、配置api-server的负载均衡（通过keepalived+haproxy）**
 
-```
+```shell
 # 所有节点安装keepalived和haproxy
 yum -y install haproxy keepalived
 ```
@@ -412,7 +411,7 @@ vrrp_instance VI_1 {
 
 **/etc/keepalived/check_haproxy.sh**
 
-```
+```shell
 #!/bin/sh
 # HAPROXY down
 A=`ps -C haproxy --no-header | wc -l`
@@ -433,7 +432,7 @@ fi
 
 **启动服务**
 
-```
+```shell
 chmod +x /etc/keepalived/check_haproxy.sh
 systemctl enable haproxy && systemctl start haproxy
 systemctl enable keepalived && systemctl start keepalived
@@ -441,9 +440,11 @@ systemctl enable keepalived && systemctl start keepalived
 
 
 
-##  **初始化集群**
+##  **三、安装Kubernetes集群**
 
-```
+### **1、修改集群配置文件**
+
+```shell
 # 在master01上操作
 # 替换 apiserver.demo 为 您想要的 dnsName
 export APISERVER_NAME=apiserver
@@ -487,109 +488,51 @@ EOF
 
 
 
-**执行初始化集群命令**
+### **2、执行初始化集群命令**
 
-```
+```shell
 # 在master01节点执行
 kubeadm init --config=kubeadm-config.yaml --upload-certs
 ```
 
 
 
-**去除master节点的污点**
+### **3、去除master节点的污点**
 
-```
+```shell
 # 去除污点，使master上也可运行pod
 kubectl taint nodes master01 node-role.kubernetes.io/master:NoSchedule-
 kubectl taint nodes master01 node.kubernetes.io/not-ready:NoSchedule-
 ```
+> 是否需要去除污点可以根据自己需求来做
 
 
-
-**安装calico网络插件**
+### **4、安装calico网络插件**
 
 > kubernetes支持的网络插件很多，这里只是选择其中一种
 
-```
+```shell
 wget https://kuboard.cn/install-script/calico/calico-3.9.2.yaml
 # 修改calico-3.9.2.yaml 将CALICO_IPV4POOL_CIDR清空/或者配置成和SUBNET相同的网段
 kubectl apply -f calico-3.9.2.yaml
 ```
 
-至此，k8s一个节点初始化成功
 
 
+### **5、其余master节点运行加入集群命令**
 
-**其余master节点运行加入集群命令**
-
-```
+```shell
 # master02 和master03上操作
 kubeadm join 172.16.111.200:16443 --token nsujl2.nfpvznx0pb0ziry8     --discovery-token-ca-cert-hash sha256:4c419c8e8c37404637e851a73edda20d87a162172b70a64a0f1316c4d217103c     --control-plane --certificate-key d57550a1be2c9c239fdaec2e42dc7475d72f255f0068be459129a2bd136de95c
 ```
 
-> 如果忘记命令 可以使用 kubeadm token create --print-join-command来获取加入集群的命令
+> 如果忘记命令 可以使用 *kubeadm token create --print-join-command*来获取加入集群的命令
 
 
 
-```
+```shell
 # 给另外两个节点取消污点，使得可以被调度
 kubectl taint nodes master02 node-role.kubernetes.io/master:NoSchedule-
 
 kubectl taint nodes master02 node-role.kubernetes.io/master:NoSchedule-
 ```
-
-
-
-## **k8s常用命令**
-
-
-
-**获取添加node节点的token**
-
-```
-kubeadm create token --print-join-command
-```
-
-
-
-**给节点添加角色标签**
-
-```
-kubectl label nodes master02 node-role.kubernetes.io/node=node
-```
-
-
-
-**k8s删除节点**
-
-```
-kubectl delete node xxx
-```
-
-
-
-**添加master节点**
-
-```
-#初始化获取证书
-kubeadm init phase upload-certs --experimental-upload-certs
-
-I0313 20:23:00.559871   28333 version.go:248] remote version is much newer: v1.17.4; falling back to: stable-1.14
-[upload-certs] Storing the certificates in ConfigMap "kubeadm-certs" in the "kube-system" Namespace
-[upload-certs] Using certificate key:
-a4786889248af30b616aa8307968e56007b9be1821fefe922e040f6e5e85f5f4
-
-# 获取他添加node节点的token
-kubeadm token create --print-join-command
-
-kubeadm join apiserver.cluster.local:6443 --token 53e01r.qgkiaw0u5x72cuu1     --discovery-token-ca-cert-hash sha256:9e3e902497b8ab6c4e9111482aaed5a094013e00ff3f0d68f5489078480df3cf
-
-
-
-
-# 将上面的两条命令结果进行拼接，在要添加的节点上执行
-kubeadm join apiserver.cluster.local:6443 --token 53e01r.qgkiaw0u5x72cuu1     --discovery-token-ca-cert-hash sha256:9e3e902497b8ab6c4e9111482aaed5a094013e00ff3f0d68f5489078480df3cf \
---experimental-control-plane --certificate-key a4786889248af30b616aa8307968e56007b9be1821fefe922e040f6e5e85f5f4
-```
-
-
