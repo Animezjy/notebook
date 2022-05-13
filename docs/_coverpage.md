@@ -3,9 +3,9 @@
 <img src="_media/icon.png" alt="logo" style="zoom:25%;" />
 
 
-> 基于 Obsidian+Docsify+Github Pages 的个人知识库
+> 基于 Pegasus 的个人知识库
 
-[![github](https://img.shields.io/badge/github-babeltower-brightgreen.svg)](https://github.com/BabelTower/notes) 
+[![github](https://img.shields.io/badge/github-animezjy-brightgreen.svg)](https://github.com/animezjy/notebook) 
 
 <br>
 
@@ -22,7 +22,7 @@
 - 考研狗
 
 [Github](https://github.com/animezjy/)
-[Get Started](README.md)
+[开始阅读](README.md)
 
 <!-- 背景图片 -->
 

@@ -36,7 +36,7 @@ go versioin
 
 
 **编译安装generator**
-```shelwa
+```shell
 yum install gcc gcc-g++ make net-snmp net-snmp-utils net-snmp-libs net-snmp-devel -y
 # 进入generator目录，编译
 cd /root/snmp_exporter/generator; go build .

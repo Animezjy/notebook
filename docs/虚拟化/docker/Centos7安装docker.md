@@ -1,11 +1,9 @@
----
-tags: 学习/运维技术/docker
----
+<a>#学习/运维技术/docker</a>
 
 # **Centos7安装docker**
 
 
-## **docker介绍**
+## **一、简介**
 docker是一个基于Go语言开发的容器引擎，它可以让我们快速的将应用打包到一个可移植的容器中，快速的发布到各个平台上
 > docker也是目前主流容器平台kubernetes默认支持的引擎
 
@@ -25,7 +23,7 @@ docker有以下特点
 
 ### **卸载旧版docker**
 
-```
+```bash
 yum remove docker \
                   docker-client \
                   docker-client-latest \
