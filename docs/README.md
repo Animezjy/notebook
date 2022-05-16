@@ -22,7 +22,8 @@
 
 ## 💻 Linux
 * **【一】Linux基础**
-* **【二】**
+* **【二】Linux服务**
+* **【三】Linux调优**
 
 ## 🦊 Gitlab
 * **[Gitlab监控](Devops/Gitlab/gitlab监控.md)**
@@ -58,8 +59,9 @@
 
 ## 📒 数据库
 
-* [Mongodb](数据库/Mongodb/README.md)
-* [Redis](数据库/Redis/README.md)
+* **[Mongodb](数据库/Mongodb/README.md)**
+* **[Mysql](数据库/Mysql/README.md)**
+* **[Redis](数据库/Redis/README.md)**
 
  
 
