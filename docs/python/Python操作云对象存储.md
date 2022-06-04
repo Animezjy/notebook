@@ -7,8 +7,8 @@ OSS_CONFIG = {
     'bucket': 'pandora-packages',  
     'directory': 'tools',  
     'endpoint': 'oss-cn-beijing.aliyuncs.com',  
-    'access_key_id': 'LTAIxQCWAwieAQkE',  
-    'secret_access_key': 'jEZQ4KP3I958OqZo5K6OLhYLxMgyJd'  
+    'access_key_id': 'ss',  
+    'secret_access_key': 'aab'  
 }
 
 class AliCloudOSS(object):  
