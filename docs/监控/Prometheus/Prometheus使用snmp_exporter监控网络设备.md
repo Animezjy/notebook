@@ -1,5 +1,8 @@
 
-# snmp exporter安装
+
+
+
+## 一、snmp exporter安装
 
 下载snmp_exporter
 ```shell
@@ -9,7 +12,7 @@ snmp exporter是一个二进制文件，解压后可以直接使用
 
 
 
-## snmp exporter 配置
+## 二、snmp exporter 配置
 术语解释
 
 **OID（Object Identifier）**：对象标识符，是与对象相关联的用来无歧义地标识对象的**全局唯一**的值，通俗理解为网络通信中对象的身份证
@@ -48,7 +51,7 @@ cd /root/snmp_exporter/generator; go build .
 通过厂商提供的MIB文件，可以查询出设备对应的OID，这里推荐使用*MIB Browser*软件
 [Network Management / Network Monitoring / SNMP Monitoring / MIB Browser](https://ireasoning.com/download.shtml)
 
-下面这个网站提供了OID与监控指标的映射，通过搜素OID，可以查看此OID对应的监控指标
+下面这个网站提供了OID与监控指标的映射，通过搜索OID，可以查看此OID对应的监控指标
 [OID 1.3.6.1.2.1.31.1.1.1 ifXEntry reference info](https://oidref.com/1.3.6.1.2.1.31.1.1.1)
 
 

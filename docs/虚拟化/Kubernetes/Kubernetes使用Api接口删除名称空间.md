@@ -27,7 +27,7 @@ kubectl get ns cdi -o json >cdi.json
 ```
 
 ```shell
-curl -k -H "Content-Type: application/json" -X PUT --data-binary @pandora-wangyan01.json http://127.0.0.1:8081/api/v1/namespaces/pandora-wangyan01/finalize
+curl -k -H "Content-Type: application/json" -X PUT --data-binary @fleet-local.json http://127.0.0.1:8081/api/v1/namespaces/fleet-local/finalize
 ```
 
 ![](https://cdn.nlark.com/yuque/0/2021/png/12669195/1628062085126-6c80d499-f49a-49ac-963f-02e8c8d9208c.png)

@@ -1,16 +1,13 @@
----
-tags: 学习/运维技术/黑苹果
----
-
+#学习/运维技术/黑苹果
   
-## 准备
+## 一、准备
 
 -   一台Mac机器
 -   Proxmox 7
 
-## 步骤
+## 二、步骤
 
-### 创建安装镜像
+### 1、创建安装镜像
 
 在mac机器上执行
 
@@ -21,7 +18,7 @@ make Monterey-full.dmg
 
 mv Monterey-full.img
 
-### 获取OpenCore镜像
+### 2、获取OpenCore镜像
 
   
 
@@ -29,7 +26,7 @@ mv Monterey-full.img
 
   
 
-### 上传镜像
+### 3、上传镜像
 
   
 
@@ -38,7 +35,7 @@ mv Monterey-full.img
 ![](https://zhangjiyou.oss-cn-beijing.aliyuncs.com/images/202204291546717.png)
 
 
-### 获取OSK
+### 4、获取OSK
 
   
 
@@ -121,9 +118,9 @@ gcc -o smc_read smc_read.c -framework IOKit
 
   
 
-### 新建虚拟机
+## 三、新建虚拟机
 
-#### 操作系统设置
+### 1、操作系统设置
 
 ![](https://zhangjiyou.oss-cn-beijing.aliyuncs.com/images/202204291545116.png)
 
@@ -132,12 +129,12 @@ gcc -o smc_read smc_read.c -framework IOKit
 
   
 
-#### 系统设置
+### 2、系统设置
 
 ![](https://zhangjiyou.oss-cn-beijing.aliyuncs.com/images/202204291545279.png)
 
 
-#### 磁盘设置
+### 3、磁盘设置
 
 ![](https://zhangjiyou.oss-cn-beijing.aliyuncs.com/images/202204291544606.png)
 
@@ -148,21 +145,21 @@ gcc -o smc_read smc_read.c -framework IOKit
 
   
 
-#### cpu设置
+### 4、cpu设置
 
 ![](https://zhangjiyou.oss-cn-beijing.aliyuncs.com/images/202204291544475.png)
 
 
 选择host类型的CPU
 
-#### 内存设置
+### 5、内存设置
 
 ![](https://zhangjiyou.oss-cn-beijing.aliyuncs.com/images/202204291544381.png)
 
 
   
 
-#### 网络设置
+### 6、网络设置
 
   
 
@@ -175,14 +172,14 @@ gcc -o smc_read smc_read.c -framework IOKit
 
   
 
-#### 虚拟机设置
+### 7、虚拟机设置
 
-##### 使用平板指针(Use tablet for pointer)
+#### 1、使用平板指针(Use tablet for pointer)
 
 ![](https://zhangjiyou.oss-cn-beijing.aliyuncs.com/images/202204291544709.png)
 
 
-##### 挂载安装镜像
+#### 2、挂载安装镜像
 
 在硬件设置中添加CD/DVD设备，总线 选择IDE，ID设置为0
 
@@ -191,7 +188,7 @@ gcc -o smc_read smc_read.c -framework IOKit
 
   
 
-##### 修改启动顺序
+#### 3、修改启动顺序
 
 将OpenCore设置为首选项
 
@@ -203,7 +200,7 @@ gcc -o smc_read smc_read.c -framework IOKit
 
   
 
-##### 编辑虚拟机配置文件
+#### 4、编辑虚拟机配置文件
 
 登录proxmox机器，修改虚拟机配置文件
 ```shell
@@ -248,7 +245,7 @@ vmgenid: 9161ebdd-5a8e-4918-b0a0-766c6f77d9b1
 
   
 
-### 设置Proxmox
+## 四、设置Proxmox
 
   
 执行如下命令，更新内核，防止 macOS 虚拟机无限重启
@@ -261,14 +258,14 @@ echo "options kvm ignore_msrs=Y" >> /etc/modprobe.d/kvm.conf && update-initramfs
 
 
 
-### 安装Monterey
+## 五、安装Monterey
 
 开启虚拟机，选择 Install macOS Monterey
 
 ![](https://zhangjiyou.oss-cn-beijing.aliyuncs.com/images/202204291541500.png)
 
 
-#### 格式化磁盘
+### 1、格式化磁盘
 
 将创建的磁盘格式化为APFS格式
 
@@ -277,7 +274,7 @@ echo "options kvm ignore_msrs=Y" >> /etc/modprobe.d/kvm.conf && update-initramfs
 
   
 
-#### 开始安装
+### 2、开始安装
 
 ![](https://zhangjiyou.oss-cn-beijing.aliyuncs.com/images/202204291541094.png)
 
@@ -293,11 +290,11 @@ echo "options kvm ignore_msrs=Y" >> /etc/modprobe.d/kvm.conf && update-initramfs
 
   
 
-### 配置开机自动进入系统
+## 六、配置开机自动进入系统
 
   
 
-#### 将EFI写入磁盘
+### 1、将EFI写入磁盘
 
 进入虚拟机后，在终端执行
 
@@ -316,7 +313,7 @@ sudo dd if=/dev/disk2s1 of=/dev/disk0s1
 
 关闭系统，在硬件设置中删除Opencore和Monterey安装镜像
 
-### 设置开机自动启动
+### 2、设置开机自动启动
 
 上述操作完成后，每次打开虚拟机，都会停留在这个界面，需要手动点击进入系统，下面来设置开机自动启动
 
@@ -338,8 +335,7 @@ sudo mount -t msdos /dev/disk0s1 /Volumes/EFI
 ![](https://zhangjiyou.oss-cn-beijing.aliyuncs.com/images/202204291539565.png)
 
 
-## 参考链接
+## 七、参考链接
 
-  
 
 [Install macOS12 Monterry on Proxmox 7](https://www.nicksherlock.com/2021/10/installing-macos-12-monterey-on-proxmox-7/#more-1167)
