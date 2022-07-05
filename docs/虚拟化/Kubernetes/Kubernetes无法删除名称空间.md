@@ -99,16 +99,6 @@ error: unable to retrieve the complete list of server APIs: metrics.k8s.io/v1bet
 [K8S从懵圈到熟练 - 我们为什么会删除不了集群的命名空间？-阿里云开发者社区](https://developer.aliyun.com/article/710206)
 
 
-
-
-
-
-
-
-
-
-
-
 切换步骤
 1. CI仓库         合并devops_test分支到dev分支
 2. （CD仓库）pandora-pipeline 合并test_jdk17到 master分支

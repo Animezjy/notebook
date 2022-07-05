@@ -1,6 +1,4 @@
----
-tags: 学习/运维技术/kubernetes
----
+#学习/运维技术/kubernetes 
 
 一个Kubernetes集群由一组节点组成。这些节点上运行Kubernetes所管理的容器化应用。每个Kubernetes集群至少有一个节点。
 
